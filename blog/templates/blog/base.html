@@ -5,12 +5,15 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <title>Blog Django Girls</title>
+        <a class="btn btn-default" href="{% url 'post_list'%}">Home<title>Blog Django Girls</title></a>
     </head>
     <body>
         <div class = 'page_header'>
-            <h1><a>Blog Django Girls</a></h1>
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <h1><a>Tutorial Blog Django Girls</a></h1>
+            {% if user.is_authenticated %}
+                <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+                <a href="{% url 'post_new' %}"><span class="glyphicon glyphicon-pencil"></span>Escrever</a>
+            {% endif %}
         </div>
 
         <div class="content container">
